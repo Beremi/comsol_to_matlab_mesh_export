@@ -166,7 +166,7 @@ class Mesh2d:
             edge_start_correct = self.elem[:, i]
             correct_ordering = edge_start == edge_start_correct
 
-            edge_i = np.zeros((self.n_elem, n_node_per_edge))
+            edge_i = np.zeros((self.n_elem, n_node_per_edge), dtype=int)
             edge_i[correct_ordering, :] = self.edge_PN[edge[correct_ordering]]
             edge_i[~correct_ordering, :] = np.fliplr(self.edge_PN[edge[~correct_ordering]])
 
@@ -371,7 +371,7 @@ class Mesh3d:
             edge_start_correct = self.elem[:, min(i, 3)]
             correct_ordering = edge_start == edge_start_correct
 
-            edge_i = np.zeros((self.n_elem, n_node_per_edge))
+            edge_i = np.zeros((self.n_elem, n_node_per_edge), dtype=int)
             edge_i[correct_ordering, :] = self.edge_PN[edge[correct_ordering]]
             edge_i[~correct_ordering, :] = np.fliplr(self.edge_PN[edge[~correct_ordering]])
 
@@ -391,7 +391,7 @@ class Mesh3d:
             edge_start_correct = self.face[:, min(i, 3)]
             correct_ordering = edge_start == edge_start_correct
 
-            edge_i = np.zeros((self.n_face, n_node_per_edge))
+            edge_i = np.zeros((self.n_face, n_node_per_edge), dtype=int)
             edge_i[correct_ordering, :] = self.edge_PN[edge[correct_ordering]]
             edge_i[~correct_ordering, :] = np.fliplr(self.edge_PN[edge[~correct_ordering]])
 
